@@ -17,6 +17,8 @@ Goals for the initial phase:
 
 - [docs/](docs/) — analysis of the original MSE2 codebase, and design
   documents for this project.
+- [CONTRIBUTING.md](CONTRIBUTING.md) — how we work: the plan/implement/
+  review/push loop, conventions, licensing rules, and asset policy.
 
 ## Status
 
