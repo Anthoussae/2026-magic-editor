@@ -58,7 +58,8 @@ documents the format with examples.
 
 ## Agent reminders
 
-Do not commit unless asked. Do not widen into schema/domain modeling. Match
+Work on a branch; commit, push, PR, and fix CI autonomously (per
+CONTRIBUTING.md). Do not widen into schema/domain modeling. Match
 MSE2 quirks exactly (they are compat requirements, not bugs to fix) — record
 each discovered quirk in the crate README. Stop and report on spec/source
 contradictions.

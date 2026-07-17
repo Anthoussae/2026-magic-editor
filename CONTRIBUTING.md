@@ -13,9 +13,13 @@ repo-local agent skills in [.claude/skills/](.claude/skills/). In Claude Code:
 | Step | Command | What it produces |
 |---|---|---|
 | 1. Plan | `/yona-plan <idea or milestone file>` | A planning directory under `docs/plans/<date>-<name>/` with `notes.md` (discovery, decisions) and `plan.md` (+ phase files) |
-| 2. Implement | `/yona-implement <plan path>` | The code, validated; `_DONE.md` completion log; ADRs when warranted; plan archived to `docs/archive/plans/` |
+| 2. Implement | `/yona-implement <plan path>` | The code, validated and **committed on a work branch**; `_DONE.md` completion log; ADRs when warranted; plan archived to `docs/archive/plans/` |
 | 3. Review | `/yona-review <branch/PR/diff>` | Review artifacts under `docs/reviews/<date>-<topic>/` with severity-rated findings |
-| 4. Push | `/yona-push` | Branch pushed, PR created, CI watched until green |
+| 4. Push | `/yona-push` | Branch pushed, PR created, CI watched and repaired until green |
+
+Steps 2–4 run **autonomously**: after implementing and validating, the agent
+commits, pushes, opens (or updates) the PR, and fixes CI failures without
+waiting for a human. The human enters the loop at the finished PR.
 
 Rules of the loop:
 
@@ -29,7 +33,12 @@ Rules of the loop:
   `docs/adr/YYYY-MM-DD-short-title.md` — what was decided, what the
   alternatives were, why. ADRs are committed with the change that makes the
   decision.
-- Agents don't commit unless asked; humans review before merge.
+- **Agents drive work to a green PR before involving a human.** They create
+  the work branch, commit at validated checkpoints, push, open the PR, and
+  diagnose/fix failing CI. Agents never work directly on `main` and never
+  merge a PR — **review and merge are the human steps**. Agents stop early
+  only for genuine blockers: ambiguity in the plan, scope changes, missing
+  permissions/secrets, or a review gate a milestone explicitly calls for.
 
 ## Where things live
 
@@ -47,6 +56,8 @@ Rules of the loop:
 ## Branches, commits, PRs, releases
 
 - All work goes through **PRs into `main`** — never push directly to `main`.
+  Agents create work branches, push them, and open PRs on their own; merging
+  is done by a human after review.
 - **Commits**: imperative subject ≤72 chars; body explains *why*; reference
   the milestone when applicable (e.g. `[M4]`); agent-authored commits end
   with `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`.

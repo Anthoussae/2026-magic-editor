@@ -40,7 +40,8 @@ card; ADR records measurements.
 
 ## Agent reminders
 
-Do not commit unless asked. Keep `CardSpec` deliberately dumb — no premature
+Work on a branch; commit, push, PR, and fix CI autonomously (per
+CONTRIBUTING.md). Keep `CardSpec` deliberately dumb — no premature
 template abstractions. Stop and report if cosmic-text/wasm has blocking
 issues (that's the point of the spike — the ADR may pivot the substrate).
 
