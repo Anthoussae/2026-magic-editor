@@ -36,7 +36,8 @@ instructions (test the newcomer path — have James do it).
 
 ## Agent reminders
 
-Do not commit unless asked. Fix-or-file, don't silently drop findings. The
+Work on a branch; commit, push, PR, and fix CI autonomously (per
+CONTRIBUTING.md). Fix-or-file, don't silently drop findings. The
 "fresh clone" test must be honest — no relying on machine state.
 
 ## Definition of done

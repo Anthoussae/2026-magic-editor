@@ -5,7 +5,7 @@ description: Push a finished implementation branch, create or update a GitHub pu
 
 # Yona Push
 
-Use this skill after implementation work is locally validated and committed. Assume the full local checks have already run; do not repeat broad validation at the start unless the repo state is suspicious. The job here is final cleanup, PR creation, CI monitoring, and focused repair when CI disagrees.
+Use this skill after implementation work is locally validated and committed. `yona-implement` hands off to this workflow automatically — pushing, opening the PR, and driving CI to green are part of the standard agent loop and need no separate user request. Assume the full local checks have already run; do not repeat broad validation at the start unless the repo state is suspicious. The job here is final cleanup, PR creation, CI monitoring, and focused repair when CI disagrees. The finished, green PR is the human's entry point: they review and merge.
 
 ## Setup
 
@@ -120,7 +120,7 @@ Finish with direct Markdown links to the PR and important CI results, plus:
 
 ## Repo Conventions — 2026-magic-editor
 
-- **Branch flow**: all work goes through PRs into `main`; never push directly to `main`. The `pre-merge` workflow must be green before merge.
+- **Branch flow**: all work goes through PRs into `main`; never push directly to `main`. The `pre-merge` workflow must be green before merge. Agents push branches and open PRs autonomously; **merging is always a human action**.
 - **Releases are automated**: merging to `main` triggers `main-push`, which tags the next CalVer version (`vYYYY.MM.DD-N`), creates the GitHub Release with generated notes, and deploys GitHub Pages. **Never create tags or releases manually**, and never re-point an existing tag. If the automation fails, diagnose the workflow — don't hand-craft its outputs.
 - **Commit style** (for CI-repair commits too): imperative subject ≤72 chars, body explains *why*, milestone ref (e.g. `[M4]`), `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>` trailer on agent-authored commits.
 - **PR body**: link the plan/milestone file being executed and any ADRs; note validation already run (`just ci`). Keep the WIP framing honest — this project is public and explicitly a work-in-progress teaching repo.

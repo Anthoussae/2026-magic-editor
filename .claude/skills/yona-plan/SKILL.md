@@ -261,7 +261,8 @@ Include:
 - ADR expectation for the phase.
 - Review gate: `none` unless the implementer should stop at the end of the phase for human review. If present, include the exact questions or artifacts to review before continuing.
 - Agent reminders:
-  - Do not commit unless the user asked.
+  - Work on a branch; commit at validated checkpoints; when done, push, open/update the PR, and drive CI to green before handing to human review.
+  - Do not merge PRs — merging is a human action.
   - Do not expand scope.
   - Do not suppress warnings or disable tests.
   - Stop and report back if blocked by ambiguity or unexpected design issues.
@@ -326,3 +327,4 @@ This section customizes the skill for this repo. It overrides the generic text a
 - **Licensing is part of planning scope**: any plan that adds ported code must state which files are ported (GPL-3.0-or-later + provenance headers) vs. original (AGPL-3.0). See `NOTICE` and `CONTRIBUTING.md` once they exist.
 - **Asset/IP policy**: no third-party template assets committed, fetched, bundled, or hosted — user-provided-file model only. Plans must not introduce exceptions; flag any pressure against this to Yona.
 - **Commit language** (for plans that specify commits): imperative subject ≤72 chars, body explains *why*, reference the milestone/plan (e.g. `[M4]`), agent-authored commits end with `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`.
+- **Autonomous loop**: plans should assume the implementing agent commits, pushes, opens the PR, and fixes CI on its own (see `CONTRIBUTING.md`). Reserve review gates for decisions that genuinely need human judgment (public-facing wording, architecture, licensing posture) — not for routine commit/push steps.

@@ -1,6 +1,6 @@
 ---
 name: yona-implement
-description: Execute an existing repo-local planning artifact, validate the work, create ADRs when warranted, archive the completed plan, and optionally commit.
+description: Execute an existing repo-local planning artifact, validate the work, create ADRs when warranted, archive the completed plan, commit on a work branch, and hand off to yona-push for PR creation and CI.
 ---
 
 # Yona Implement
@@ -43,6 +43,8 @@ If the plan is missing phase files but marks a work item as `sub-phases required
 
 If `_DONE.md` already exists for the requested plan, inspect it and the current plan status before continuing. Ask before re-running completed work unless the user explicitly requested a follow-up or repair.
 
+Before touching code, make sure you are on a work branch. If the current branch is `main` (or another protected base branch), create a descriptively named branch first (e.g. `m1-repo-foundation`). Never implement directly on `main`.
+
 ## Execution
 
 For each work item:
@@ -57,7 +59,7 @@ For each work item:
 
 If a phase says `sub-phases recommended`, decide whether to split before execution. If it says `sub-phases required`, split before execution.
 
-Delegated agents should not commit unless the user explicitly asked them to.
+Delegated agents should not commit; the implementing agent owns commits and makes them at validated checkpoints.
 
 When recording phase-level implementation results, append a short section to the phase file instead of renaming it:
 
@@ -154,15 +156,15 @@ Do not rename `plan.md` or phase files after completion.
 
 ## Commit
 
-If the user asked for a commit, create a single conventional commit once validation passes unless the plan explicitly calls for checkpoints.
+Committing is the default — do not wait for the user to ask. Once validation passes, create a single conventional commit on the work branch, unless the plan explicitly calls for checkpoint commits (then commit at each validated checkpoint).
 
 Commit code, plan artifacts, and ADRs together. Include ADR paths in the commit body when ADRs were created.
 
-If the user did not ask for a commit, leave the worktree ready for review and clearly report the changed files and validation results.
+Only skip committing if the user explicitly asked you not to commit, or if validation never passed — in that case leave the worktree ready for review and clearly report the changed files and validation results.
 
 ## Archive
 
-After `_DONE.md` is written and the user-requested commit behavior is handled, move the completed planning directory from:
+After `_DONE.md` is written and the implementation commit exists, move the completed planning directory from:
 
 ```text
 docs/plans/<YYYY-MM-DD>-<name>/
@@ -176,7 +178,13 @@ docs/archive/plans/<YYYY-MM-DD>-<name>/
 
 If a destination already exists, add a short suffix such as `-v2` rather than overwriting it.
 
-If the repo uses git and the move should be committed, include the archive move in the implementation commit when possible. If the move happens after the commit, report it clearly so the user can decide whether to commit the archive update.
+Include the archive move in the implementation commit when possible. If the move happens after the commit, commit it as a small follow-up on the same branch.
+
+## Hand Off To Push
+
+After the implementation commit and archive are done, continue directly into the `yona-push` workflow: push the branch, create or update the PR, watch CI, and repair failures until green. Do not stop to ask permission for this step — the loop's human touchpoint is the finished PR.
+
+Skip the handoff only if the user explicitly said not to push, if there is no commit, or if a milestone review gate says to stop earlier.
 
 ## Completion
 
@@ -188,15 +196,15 @@ Finish with:
 - Documentation updated, or why no docs were needed.
 - ADRs created, or why none were warranted.
 - Archive path.
-- Commit SHA, if a commit was created.
-- Any remaining follow-up work.
-
-If the work still needs a push, PR creation, or CI watching, say that plainly and suggest `yona-push`.
+- Commit SHA(s).
+- PR link and CI state (from the `yona-push` handoff).
+- Any remaining follow-up work, and what the human should review before merging.
 
 ## Repo Conventions — 2026-magic-editor
 
 This section customizes the skill for this repo. It overrides the generic text above where they differ.
 
+- **Autonomous loop**: implement → commit → push → PR → CI-green is one continuous agent-driven flow (see `CONTRIBUTING.md`). Humans review at the PR and do the merge. Milestone review gates still apply where a milestone file declares one.
 - **Commit style**: imperative subject ≤72 chars; body explains *why*; reference the milestone/plan (e.g. `[M4]`); agent-authored commits end with `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>`. Commit code + plan artifacts + ADRs together (as the generic text says).
 - **Validation baseline**: `just ci` must pass before declaring a work item done (fmt, clippy with warnings denied, tests, wasm build). Do not weaken lints to pass.
 - **Licensing discipline (check on every new file)**:

@@ -103,7 +103,8 @@ manual action. These set public-facing tone and are cheap to fix now.
 
 ## Agent reminders
 
-Do not commit unless asked. Do not expand scope. Do not suppress warnings or
+Work on a branch; commit, push, PR, and fix CI autonomously (per
+CONTRIBUTING.md). Do not expand scope. Do not suppress warnings or
 disable tests. Stop and report if blocked (e.g. missing repo permissions).
 Report what changed, what was validated, and deviations.
 

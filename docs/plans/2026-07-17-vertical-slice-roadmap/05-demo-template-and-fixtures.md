@@ -47,7 +47,8 @@ fixtures README wording (it makes legal claims), and the ADR.
 
 ## Agent reminders
 
-Do not commit unless asked. Nothing WotC-derived in any committed asset —
+Work on a branch; commit, push, PR, and fix CI autonomously (per
+CONTRIBUTING.md). Nothing WotC-derived in any committed asset —
 when in doubt, leave it out and flag. Original ≠ parody: don't imitate magic
 frame trade dress. Stop and report if MSE2 validation (item 3) is infeasible.
 

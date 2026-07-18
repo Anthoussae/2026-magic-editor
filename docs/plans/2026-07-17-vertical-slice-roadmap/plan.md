@@ -151,7 +151,9 @@ convention). Expected during the roadmap:
 
 ## Agent reminders
 
-- Do not commit unless the user asked. Do not expand scope.
+- Work on a branch; commit, push, open the PR, and drive CI to green
+  autonomously (see `CONTRIBUTING.md`). Humans review and merge the PR.
+  Do not expand scope.
 - Milestones M6–M8: run `yona-plan` first; do not start implementing from the
   milestone file alone.
 - Every ported file needs the GPL-3.0-or-later SPDX header + MSE2 provenance

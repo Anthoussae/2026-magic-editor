@@ -53,7 +53,8 @@ the whole project) and walks James through adding a story.
 
 ## Agent reminders
 
-Do not commit unless asked. Do not expand scope (no knobs/controls gold-plating).
+Work on a branch; commit, push, PR, and fix CI autonomously (per
+CONTRIBUTING.md). Do not expand scope (no knobs/controls gold-plating).
 Stop and report if lp2025 code doesn't adapt cleanly. Report changes,
 validation, deviations.
 

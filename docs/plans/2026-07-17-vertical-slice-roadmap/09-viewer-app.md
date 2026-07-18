@@ -40,7 +40,8 @@ Yona + James review the deployed slice UX and the import flow wording
 
 ## Agent reminders
 
-Do not commit unless asked. Story-first — no component lands without
+Work on a branch; commit, push, PR, and fix CI autonomously (per
+CONTRIBUTING.md). Story-first — no component lands without
 stories. Do not add any asset fetching. Report changes, validation,
 deviations.
 
