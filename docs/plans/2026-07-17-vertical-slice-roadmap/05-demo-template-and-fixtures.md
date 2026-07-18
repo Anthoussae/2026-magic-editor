@@ -42,7 +42,7 @@ Out of scope: rendering the demo template (M8), app bundling (M9).
 
 ## Review gate (end of milestone)
 
-Yona reviews: demo template design + art direction, `ATTRIBUTION.md`, the
+James reviews: demo template design + art direction, `ATTRIBUTION.md`, the
 fixtures README wording (it makes legal claims), and the ADR.
 
 ## Agent reminders
