@@ -59,8 +59,8 @@ Write `docs/dev/sdlc.md` explaining the pipeline as part of this milestone.
    - `AGENTS.md`: project intent, crate map (planned), conventions (SPDX
      headers, commit style, yona-* skill workflow, asset/IP policy,
      "engine crates never depend on app/wasm").
-5. **CalVer + CI/CD** (port the lp2025 pattern; reference
-   `/Users/yona/dev/photomancer/lp2025/scripts/tag-next-version.sh`,
+5. **CalVer + CI/CD** (port the lp2025 pattern; reference the local clone
+   at `~/dev/lightplayer` — `scripts/tag-next-version.sh`,
    `print-app-version.sh`, `.github/workflows/{pre-merge,main-push}.yml`)
    - `scripts/tag-next-version.sh`: tag `vYYYY.MM.DD-N` on main.
    - `scripts/print-app-version.sh`: tag → version, else `branch@sha`.
@@ -76,7 +76,8 @@ Write `docs/dev/sdlc.md` explaining the pipeline as part of this milestone.
    - `docs/dev/sdlc.md`: how versioning/CI/releases/deploy work here, written
      for a newer coder. Cross-check `CONTRIBUTING.md` (exists) still matches
      the implemented pipeline; update where reality differs.
-6. **Repo settings** (needs Yona or `gh` with admin): enable Pages
+6. **Repo settings** (James has admin — the repo now lives at
+   `Anthoussae/2026-magic-editor`): enable Pages
    (GitHub Actions source), branch protection on main requiring pre-merge
    checks. Document in `docs/dev/sdlc.md`; flag anything the agent cannot do.
 
@@ -97,7 +98,7 @@ Write `docs/dev/sdlc.md` explaining the pipeline as part of this milestone.
 
 ## Review gate (end of milestone)
 
-Stop and review with Yona (+ James): README wording (WIP/attribution/agentic
+Stop for James to review: README wording (WIP/attribution/agentic
 statements), both ADRs, the live Pages URL, and repo settings that needed
 manual action. These set public-facing tone and are cheap to fix now.
 

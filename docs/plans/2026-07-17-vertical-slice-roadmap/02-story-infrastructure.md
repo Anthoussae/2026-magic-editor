@@ -14,7 +14,7 @@ is developed story-first. Reference implementation: lp2025's
 Out of scope: real app components (M3+ provide those), visual regression
 tooling (future work).
 
-## Teaching goal (primary driver — Yona's explicit priority)
+## Teaching goal (primary driver)
 
 Teach James story-driven frontend development: build components in isolation,
 enumerate their states as stories, review visually, then compose into the app.
@@ -48,8 +48,9 @@ deployed Pages site; adding a new story takes ≤10 lines (demonstrated).
 
 ## Review gate (end of milestone)
 
-Yona reviews the story-host shape + ADR (it sets the frontend workflow for
-the whole project) and walks James through adding a story.
+James reviews the story-host shape + ADR (it sets the frontend workflow for
+the whole project) and adds one story by hand, following
+`docs/dev/stories.md`, to prove the workflow is learnable.
 
 ## Agent reminders
 

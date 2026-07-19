@@ -35,7 +35,7 @@ test only) imports and renders.
 
 ## Review gate (end of milestone)
 
-Yona + James review the deployed slice UX and the import flow wording
+James reviews the deployed slice UX and the import flow wording
 (legal-adjacent copy).
 
 ## Agent reminders

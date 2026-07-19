@@ -55,10 +55,12 @@ cards**, built on a Rust port of the MSE2 engine.
 - Approach and rationale: decided in pre-planning conversation; see
   [notes.md](notes.md).
 - MSE2 analysis: [docs/mse2/](../../mse2/01-overview.md) (01–04).
-- MSE2 source (reference for the port): `/Users/yona/dev/james/MagicSetEditor2`
-  — headers grant GPL-2-or-later; format spec in `doc/type/*.txt`; script
+- MSE2 source (reference for the port): a local clone of
+  https://github.com/twanvl/MagicSetEditor2 (needed from M4 onward) —
+  headers grant GPL-2-or-later; format spec in `doc/type/*.txt`; script
   conformance suite in `test/script/`.
-- lp2025 (`/Users/yona/dev/photomancer/lp2025`): reference for Dioxus 0.7 app
+- lp2025 (public: https://github.com/light-player/lightplayer, local clone
+  at `~/dev/lightplayer`): reference for Dioxus 0.7 app
   structure, story-driven components, OPFS storage, justfile/AGENTS.md
   conventions, CalVer + release CI (`scripts/tag-next-version.sh`,
   `.github/workflows/{pre-merge,main-push,deploy-studio-pages}.yml`). Yona
@@ -66,8 +68,10 @@ cards**, built on a Rust port of the MSE2 engine.
 
 ## Audience note (important for every milestone)
 
-This project is a teaching vehicle for James, a new coder advised by Yona.
-Every milestone should:
+This project is a teaching vehicle for James, a new coder. Yona set the
+project up and handed it off (2026-07-18); James now owns the project solo —
+every review gate in the milestone files is James's responsibility, as is
+merging PRs. Every milestone should:
 
 - Be executable by a newer coder driving AI agents with the repo-local
   `.claude/skills/yona-*` workflow (plan → implement → review → push).

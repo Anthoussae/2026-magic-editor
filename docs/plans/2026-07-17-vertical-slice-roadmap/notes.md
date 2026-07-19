@@ -122,6 +122,30 @@ repo layout, commit/PR/release conventions, licensing rules, asset policy,
 story-driven UI, teaching norm). M1 adjusted to *update* it alongside
 `docs/dev/sdlc.md` rather than create it.
 
+**2026-07-18, ownership handoff — James:**
+
+- Yona has handed the project fully to James and is no longer involved.
+  James is the sole owner: every review gate that previously named Yona now
+  falls to James (milestone files updated accordingly), and James merges all
+  PRs.
+- Same day, earlier: SDLC updated (PR #1) so agents commit, push, open PRs,
+  and fix CI autonomously; the human touchpoint is PR review + merge.
+- The repo still lives under Yona's GitHub account; James has write but not
+  admin access. Outstanding one-time asks to Yona: admin access or a repo
+  transfer (needed for M1 item 6), and a copy of the private lp2025 project
+  (reference for M1/M2).
+- Yona-local filesystem paths in the entries above are historical. The MSE2
+  source is publicly cloneable from
+  https://github.com/twanvl/MagicSetEditor2 (needed from M4).
+
+**2026-07-18, later — both asks resolved:**
+
+- Repo transferred to `Anthoussae/2026-magic-editor`; James has admin.
+- lp2025 turned out to be public: https://github.com/light-player/lightplayer.
+  Shallow-cloned to `~/dev/lightplayer`; all files the roadmap references
+  (CalVer scripts, pre-merge/main-push/deploy workflows, story crates) are
+  confirmed present. Nothing further is needed from Yona.
+
 ## Assumptions made without explicit confirmation
 
 - Commit message convention (skills pass): imperative subject ≤72 chars, body
