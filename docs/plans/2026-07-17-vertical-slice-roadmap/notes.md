@@ -138,6 +138,14 @@ story-driven UI, teaching norm). M1 adjusted to *update* it alongside
   source is publicly cloneable from
   https://github.com/twanvl/MagicSetEditor2 (needed from M4).
 
+**2026-07-18, later — both asks resolved:**
+
+- Repo transferred to `Anthoussae/2026-magic-editor`; James has admin.
+- lp2025 turned out to be public: https://github.com/light-player/lightplayer.
+  Shallow-cloned to `~/dev/lightplayer`; all files the roadmap references
+  (CalVer scripts, pre-merge/main-push/deploy workflows, story crates) are
+  confirmed present. Nothing further is needed from Yona.
+
 ## Assumptions made without explicit confirmation
 
 - Commit message convention (skills pass): imperative subject ≤72 chars, body

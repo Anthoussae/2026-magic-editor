@@ -59,13 +59,12 @@ cards**, built on a Rust port of the MSE2 engine.
   https://github.com/twanvl/MagicSetEditor2 (needed from M4 onward) —
   headers grant GPL-2-or-later; format spec in `doc/type/*.txt`; script
   conformance suite in `test/script/`.
-- lp2025: Yona's private project, reference for Dioxus 0.7 app
+- lp2025 (public: https://github.com/light-player/lightplayer, local clone
+  at `~/dev/lightplayer`): reference for Dioxus 0.7 app
   structure, story-driven components, OPFS storage, justfile/AGENTS.md
   conventions, CalVer + release CI (`scripts/tag-next-version.sh`,
   `.github/workflows/{pre-merge,main-push,deploy-studio-pages}.yml`). Yona
-  (author) authorizes reuse of lp2025 code under any license needed. James
-  needs a copy from Yona before M1/M2; if unavailable, implement the same
-  concepts from the descriptions in this roadmap.
+  (author) authorizes reuse of lp2025 code under any license needed.
 
 ## Audience note (important for every milestone)
 
